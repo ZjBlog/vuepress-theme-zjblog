@@ -1,0 +1,30 @@
+{
+  "name": "vuepress-theme-zjblog",
+  "version": "1.0.2",
+  "description": "vuepress-theme",
+  "repository": "https://github.com/ZjBlog/vuepress-theme-zjblog",
+  "homepage": "https://github.com/ZjBlog/vuepress-theme-zjblog#README.md",
+  "main": "util.js",
+  "keywords": [
+    "vuepress",
+    "theme",
+    "vuepress-theme"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zj",
+  "license": "ISC",
+  "dependencies": {
+    "autosize": "^4.0.2",
+    "axios": "^0.18.0",
+    "clipboard": "^2.0.1",
+    "date-fns": "^1.29.0",
+    "font-awesome": "^4.7.0",
+    "github-markdown-css": "^2.10.0",
+    "html2canvas": "^1.0.0-alpha.12",
+    "node-polyglot": "^2.3.0",
+    "raw-loader": "^0.5.1"
+  },
+  "devDependencies": {}
+}
