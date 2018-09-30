@@ -47,10 +47,10 @@ export default {
   },
   computed: {
     key1() {
-        return this.code + Date.now()
+      return this.code  + 'key1'
     },
     key2() {
-        return this.code+Date.now()+ Math.floor(Math.random()*10)
+      return this.code + 'key2'
     },
     user() {
       const { themeConfig } = this.$site;
@@ -59,7 +59,8 @@ export default {
   },
   methods: {
     change () {
-      this.code = Math.floor(Math.random()*10)
+      console.info('codechange....')
+      this.code = Date.now()
     },
     changeShow () {
       let vm = this
