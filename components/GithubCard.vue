@@ -1,14 +1,14 @@
 <template>
   <transition-group name="right">
-    <div class="card github-card" v-if="show && $site.themeConfig.zjavatar" :key="key1">
+    <div :key="key2" class="card github-card" v-if="show && $site.themeConfig.zjwx">
+      <img :src="$withBase($site.themeConfig.zjwx)" />
+    </div>
+    <div class="card github-card" v-if="show1 && $site.themeConfig.zjavatar && web" :key="key1">
       <div class="github-header"></div>
       <a :href="$site.themeConfig.zjgithub?$site.themeConfig.zjgithub:'https://github.com'" class="user-link xwcms">
           <img :src="$site.themeConfig.zjavatar" class="github-avatar">
       </a>
       <h1>{{ $site.themeConfig.zjname ? $site.themeConfig.zjname:'无名氏' }}</h1>
-    </div>
-    <div :key="key2" class="card github-card" v-if="show1 && $site.themeConfig.zjwx">
-      <img :src="$withBase($site.themeConfig.zjwx)" />
     </div>
   </transition-group>
 </template>
@@ -35,22 +35,24 @@ export default {
       gistsNum: null,
       gistsUrl: null,
       code: 1,
+      web:true
     };
   },
     watch: {
     '$route': 'change'
   },
   mounted() {
+    this.web = this.isWeb()
     this.changeShow()
     // if (!this.user) return;
     // this.githubUserInfo(this.user).then(this.githubInfoHandle);
   },
   computed: {
     key1() {
-      return this.code  + 'key1'
+        return this.code  + 'key1'
     },
     key2() {
-      return this.code + 'key2'
+        return this.code + 'key2'
     },
     user() {
       const { themeConfig } = this.$site;
@@ -58,6 +60,22 @@ export default {
     }
   },
   methods: {
+    isWeb () {
+      let sUserAgent = navigator.userAgent.toLowerCase()
+      let bIsIpad = sUserAgent.match(/ipad/i) == "ipad"
+      let bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os"
+      let bIsMidp = sUserAgent.match(/midp/i) == "midp"
+      let bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4"
+      let bIsUc = sUserAgent.match(/ucweb/i) == "ucweb"
+      let bIsAndroid = sUserAgent.match(/android/i) == "android"
+      let bIsCE = sUserAgent.match(/windows ce/i) == "windows ce"
+      let bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile"
+      if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) { 
+          return false   
+      }else{
+        return true
+      }
+    },
     change () {
       console.info('codechange....')
       this.code = Date.now()
