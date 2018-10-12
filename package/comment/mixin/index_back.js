@@ -45,7 +45,6 @@ const Mixin = {
         };
     },
     mounted() {
-        console.info('mounted....执行' + window.location.href)
         this.$nextTick(() => {
             this.commentEL = this.$refs['commentEL'];
 
@@ -57,7 +56,7 @@ const Mixin = {
             this.options = Object.assign(
                 this.options,
                 {
-                    id: document.title.split('|')[0].trim(),
+                    id: document.title,
                     number: -1,
                     labels: ["Gitalk"],
                     title: document.title,
@@ -133,22 +132,18 @@ const Mixin = {
                 const replacedUrl = `${location.origin}${
                     location.pathname
                 }${queryStringify(query)}${location.hash}`;
-                console.info('replaceUrl:' + replacedUrl)
-                console.info('id:'+ this.options.id)
                 history.replaceState(null, null, replacedUrl);
                 this.options = Object.assign(
                     {},
                     this.options,
                     {
-                        url: replacedUrl
-                        // id: replacedUrl
+                        url: replacedUrl,
+                        id: replacedUrl
                     },
                     this.$site.themeConfig.comment
                 );
-                console.info('....有code执行commentInital')
                 this.commentInital(code);
             } else {
-                console.info('initial .... getinit')
                 this.getInit()
                     .then(() => {
                         this.isIniting = false;
@@ -170,7 +165,6 @@ const Mixin = {
                 if (res.data && res.data.access_token) {
                     this.accessToken = res.data.access_token
                     this._accessToken = res.data.access_token
-                    console.info('commentInital....getinit')
                     this.getInit()
                         .then(() => {
                             this.isIniting = false;
@@ -194,14 +188,12 @@ const Mixin = {
             })
         },
         getInit() {
-            console.info('getinit......userinfo')
             return this.getUserInfo()
                 .then(() => this.getIssue())
                 .then(issue => this.getComments(issue));
         },
         getIssue() {
             const { number } = this.options;
-            console.info('.....number' + number)
             if (this.issue) {
                 this.isNoInit = false;
                 return Promise.resolve(this.issue);
@@ -262,9 +254,6 @@ const Mixin = {
                 clientSecret
             } = this.options;
 
-            console.info(id)
-            console.info(labels)
-            console.info(labels.concat(id).join(","))
             return axiosGithub
                 .get(`/repos/${owner}/${repo}/issues`, {
                     params: {
@@ -280,7 +269,6 @@ const Mixin = {
                     let issue = null;
                     if (!(res && res.data && res.data.length)) {
                         if (!createIssueManually && this.isAdmin) {
-                            console.info("获取getIssueByLabels 时 创建问题")
                             return this.createIssue();
                         }
 
@@ -295,9 +283,6 @@ const Mixin = {
         },
         createIssue() {
             const { owner, repo, title, body, id, labels, url } = this.options;
-            console.info(id)
-            console.info(labels.concat(id))
-            console.info(labels.concat('dd'))
             const token = this._accessToken || this.accessToken
             return axiosGithub
                 .post(
@@ -497,7 +482,6 @@ const Mixin = {
         },
         handleIssueCreate() {
             this.isIssueCreating = true;
-            console.Info('handleIssueCreate....创建问题')
             this.createIssue().then(issue => {
                 this.isIssueCreating = false;
                 this.isOccurError = false;
