@@ -133,8 +133,8 @@ const Mixin = {
                 const replacedUrl = `${location.origin}${
                     location.pathname
                 }${queryStringify(query)}${location.hash}`;
-                console.info('replaceUrl:' + replacedUrl)
-                console.info('id:'+ this.options.id)
+                //console.info('replaceUrl:' + replacedUrl)
+                //console.info('id:'+ this.options.id)
                 history.replaceState(null, null, replacedUrl);
                 this.options = Object.assign(
                     {},
@@ -280,7 +280,7 @@ const Mixin = {
                     let issue = null;
                     if (!(res && res.data && res.data.length)) {
                         if (!createIssueManually && this.isAdmin) {
-                            console.info("获取getIssueByLabels 时 创建问题")
+                            //console.info("获取getIssueByLabels 时 创建问题")
                             return this.createIssue();
                         }
 
@@ -497,7 +497,7 @@ const Mixin = {
         },
         handleIssueCreate() {
             this.isIssueCreating = true;
-            console.Info('handleIssueCreate....创建问题')
+            //console.Info('handleIssueCreate....创建问题')
             this.createIssue().then(issue => {
                 this.isIssueCreating = false;
                 this.isOccurError = false;
