@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-zjblog",
-  "version": "1.0.6",
+  "version": "1.2.1",
   "description": "vuepress-theme",
   "repository": "https://github.com/ZjBlog/vuepress-theme-zjblog",
   "homepage": "https://github.com/ZjBlog/vuepress-theme-zjblog#README.md",
@@ -13,7 +13,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "zj",
+  "author": "暴躁DPS",
   "license": "ISC",
   "dependencies": {
     "autosize": "^4.0.2",

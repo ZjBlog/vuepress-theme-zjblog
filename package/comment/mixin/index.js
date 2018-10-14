@@ -45,7 +45,7 @@ const Mixin = {
         };
     },
     mounted() {
-        console.info('mounted....执行' + window.location.href)
+        // console.info('mounted....执行' + window.location.href)
         this.$nextTick(() => {
             this.commentEL = this.$refs['commentEL'];
 
@@ -101,7 +101,7 @@ const Mixin = {
         accessToken: {
             get: function() {
                 if (typeof window === 'undefined') {
-                    console.info('gettoken + if')
+                    // console.info('gettoken + if')
                     return this._accessToken;
                 }
                 return this._accessToken || localStorage.getItem(GT_ACCESS_TOKEN);
@@ -145,10 +145,10 @@ const Mixin = {
                     },
                     this.$site.themeConfig.comment
                 );
-                console.info('....有code执行commentInital')
+                // console.info('....有code执行commentInital')
                 this.commentInital(code);
             } else {
-                console.info('initial .... getinit')
+                // console.info('initial .... getinit')
                 this.getInit()
                     .then(() => {
                         this.isIniting = false;
@@ -194,14 +194,14 @@ const Mixin = {
             })
         },
         getInit() {
-            console.info('getinit......userinfo')
+            // console.info('getinit......userinfo')
             return this.getUserInfo()
                 .then(() => this.getIssue())
                 .then(issue => this.getComments(issue));
         },
         getIssue() {
             const { number } = this.options;
-            console.info('.....number' + number)
+            // console.info('.....number' + number)
             if (this.issue) {
                 this.isNoInit = false;
                 return Promise.resolve(this.issue);
@@ -262,9 +262,9 @@ const Mixin = {
                 clientSecret
             } = this.options;
 
-            console.info(id)
-            console.info(labels)
-            console.info(labels.concat(id).join(","))
+            // console.info(id)
+            // console.info(labels)
+            // console.info(labels.concat(id).join(","))
             return axiosGithub
                 .get(`/repos/${owner}/${repo}/issues`, {
                     params: {
@@ -295,9 +295,9 @@ const Mixin = {
         },
         createIssue() {
             const { owner, repo, title, body, id, labels, url } = this.options;
-            console.info(id)
-            console.info(labels.concat(id))
-            console.info(labels.concat('dd'))
+            // console.info(id)
+            // console.info(labels.concat(id))
+            // console.info(labels.concat('dd'))
             const token = this._accessToken || this.accessToken
             return axiosGithub
                 .post(

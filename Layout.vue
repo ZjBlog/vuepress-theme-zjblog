@@ -42,7 +42,7 @@ import Vue from "vue";
 import nprogress from "nprogress";
 import Activity from "./layout/Activity.vue";
 import Navbar from "./components/Navbar.vue";
-import Page from "./Page.vue";
+// import Page from "./Page.vue";
 import Sidebar from "./components/Sidebar.vue";
 import ToolGroup from "./components/ToolGroup.vue";
 import ArticleGroup from './components/ArticleGroup.vue'
@@ -54,7 +54,7 @@ import navLayoutMixin from './lib/navLayout.mixin'
 import { resolveSidebarItems, getTitle } from "./lib/util";
 import FooterBlog from './components/footerblog'
 import baiduPush from './lib/baidu'
-
+const Page = () => import('./Page.vue')
 export default {
   mixins: [navLayoutMixin],
   components: { 
@@ -196,12 +196,12 @@ export default {
   },
   methods: {
     baiduPush (href) {
-      console.info('....push:' + href)
       if (href.substring(0,5) !== 'https') {
         console.info('dev')
         return;
       }
-      console.info('=======pro========:' + href)
+      console.info('baidpush:' + href)
+      // console.info('=======pro========:' + href)
       !function(){
         let e = /([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi
         let r = href || window.location.href

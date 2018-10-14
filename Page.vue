@@ -30,7 +30,7 @@
       </div>
     </div>
     <div id="comment-container" v-if="$site.themeConfig.comment">
-        <Comment :key="key" />
+        <Comment :key="key"/>
     </div>
   </div>
 </template>
@@ -38,7 +38,7 @@
 <script>
 import OutboundLink from "./components/OutboundLink.vue";
 import navLayoutMixin from "./lib/navLayout.mixin";
-import Comment from './package/comment';
+const Comment = () => import('./package/comment')
 import {
     resolvePage,
     normalize,
@@ -48,13 +48,31 @@ import {
 } from "./lib/util";
 
 export default {
+    data () {
+      return {
+        key: '12'
+      }
+    },
+    watch: {
+        '$route' (to, from) {
+            // console.log(to)
+            // console.info(from)
+            this.change()
+        }
+    },
+    methods: {
+        change () {
+            //console.info('......keychangecomment.........')
+            this.key = Date.now()
+        }
+    },
     mixins: [navLayoutMixin],
     components: { OutboundLink, Comment },
     props: ["sidebarItems"],
     computed: {
-        key() {
-            return this.$route.name + Math.floor(Math.random()*10)
-        },
+        // key() {
+        //     return this.$route.name + Math.floor(Math.random()*10)
+        // },
         prev() {
             const prev = this.$page.frontmatter.prev;
             if (prev === false) {
