@@ -170,7 +170,7 @@ const Mixin = {
                 if (res.data && res.data.access_token) {
                     this.accessToken = res.data.access_token
                     this._accessToken = res.data.access_token
-                    console.info('commentInital....getinit')
+                    // console.info('commentInital....getinit')
                     this.getInit()
                         .then(() => {
                             this.isIniting = false;

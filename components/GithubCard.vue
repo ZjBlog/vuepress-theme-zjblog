@@ -77,7 +77,7 @@ export default {
       }
     },
     change () {
-      console.info('codechange....')
+      // console.info('codechange....')
       this.code = Date.now()
     },
     changeShow () {

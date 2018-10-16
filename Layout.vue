@@ -77,10 +77,10 @@ export default {
       swUpdateEvent: null,
       flag: false,
       w1: {
-        minHeight: '855px'
+        minHeight: '724px'
       },
       w2: {
-        minHeight: '855px',
+        minHeight: '724px',
         width: '100%',
         margin: '0 auto',
         padding: 0
@@ -200,7 +200,7 @@ export default {
         console.info('dev')
         return;
       }
-      console.info('baidpush:' + href)
+      // console.info('baidpush:' + href)
       // console.info('=======pro========:' + href)
       !function(){
         let e = /([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi
