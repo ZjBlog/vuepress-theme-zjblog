@@ -3,12 +3,19 @@
     <div :key="key2" class="card github-card" v-if="show && $site.themeConfig.zjwx">
       <img :src="$withBase($site.themeConfig.zjwx)" />
     </div>
-    <div class="card github-card" v-if="show1 && $site.themeConfig.zjavatar && web" :key="key1">
+    <!-- <div class="card github-card" v-if="show1 && $site.themeConfig.zjavatar && web" :key="key1">
       <div class="github-header"></div>
       <a :href="$site.themeConfig.zjgithub?$site.themeConfig.zjgithub:'https://github.com'" class="user-link xwcms">
           <img :src="$site.themeConfig.zjavatar" class="github-avatar">
       </a>
       <h1>{{ $site.themeConfig.zjname ? $site.themeConfig.zjname:'无名氏' }}</h1>
+    </div> -->
+    <div class="card github-card" v-if="show1 && web" :key="key1">
+      <!-- <div class="github-header"></div> -->
+      <!-- <a :href="$site.themeConfig.zjgithub?$site.themeConfig.zjgithub:'https://github.com'" class="user-link xwcms"> -->
+          <img :src="src">
+      <!-- </a> -->
+      <h1>扫一扫手机阅读</h1>
     </div>
   </transition-group>
 </template>
@@ -35,13 +42,15 @@ export default {
       gistsNum: null,
       gistsUrl: null,
       code: 1,
-      web:true
+      web:true,
+      src: 'http://qr.liantu.com/api.php?text=https://zjblog.github.io&w=256'
     };
   },
     watch: {
     '$route': 'change'
   },
   mounted() {
+    this.src = 'http://qr.liantu.com/api.php?text=' + window.location.href + '&w=256'
     this.web = this.isWeb()
     this.changeShow()
     // if (!this.user) return;
@@ -77,7 +86,6 @@ export default {
       }
     },
     change () {
-      // console.info('codechange....')
       this.code = Date.now()
     },
     changeShow () {
@@ -152,9 +160,10 @@ export default {
   max-width: $toolWidth;
 
   h1 {
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 500;
     text-decoration: none;
+    margin-top:-9px;
   }
 }
 
