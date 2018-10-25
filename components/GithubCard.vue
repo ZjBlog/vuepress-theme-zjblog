@@ -1,7 +1,7 @@
 <template>
   <transition-group name="right">
     <div :key="key2" class="card github-card" v-if="show && $site.themeConfig.zjwx">
-      <img :src="$withBase($site.themeConfig.zjwx)" />
+      <img :src="$withBase($site.themeConfig.zjwx)" style="width:250px;height:270px;"/>
     </div>
     <!-- <div class="card github-card" v-if="show1 && $site.themeConfig.zjavatar && web" :key="key1">
       <div class="github-header"></div>
