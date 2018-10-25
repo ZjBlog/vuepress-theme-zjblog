@@ -77,10 +77,10 @@ export default {
       swUpdateEvent: null,
       flag: false,
       w1: {
-        minHeight: '724px'
+        minHeight: '750px'
       },
       w2: {
-        minHeight: '724px',
+        minHeight: '750px',
         width: '100%',
         margin: '0 auto',
         padding: 0
