@@ -32,7 +32,7 @@
       </div>
       <SWUpdatePopup :updateEvent="swUpdateEvent" />
     </div>
-    <div class="background-mask" :style="wrapClasses"></div>
+    <div class="background-mask" :style="flag?ff:wrapClasses"></div>
     <footer-blog></footer-blog>
   </div>
 </template>
@@ -77,13 +77,16 @@ export default {
       swUpdateEvent: null,
       flag: false,
       w1: {
-        minHeight: '754px'
+        minHeight: '724px'
       },
       w2: {
-        minHeight: '754px',
+        minHeight: '724px',
         width: '100%',
         margin: '0 auto',
         padding: 0
+      },
+      ff:{
+        background: 'url(/bd.jpg)'
       }
     };
   },
@@ -156,7 +159,7 @@ export default {
               `${this.$withBase(themeConfig.background)}` +
               '")'
           }
-        : { background: "#f6f6f6" };
+        : { background: 'url(https://bing.ioliu.cn/v1/rand)',backgroundSize:'cover'};
     }
   },
   created() {
