@@ -10,6 +10,8 @@
 * 把GithubCard页面的请求去掉了
 * 修改404页面样式
 * 如果不设置背景图地址就每次随机一张图片作为背景图
+* 修改分页的问题
+* 增加友情链接配置
 ## 新增的配置
 ```js
 themeConfig:{
@@ -23,6 +25,8 @@ themeConfig:{
   zjwx: '',
   //把title和首页的标题区分开了,这是首页logo旁边的字
   zjHome: ''
+  //友情链接
+  zjurl:[{url:'https://www.bangechengzi.com/',name:'半个橙子'}]
 }
 ```
 

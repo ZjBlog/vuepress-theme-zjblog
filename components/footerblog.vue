@@ -1,12 +1,14 @@
 <template>
     <div class="footer">
         <div class="bo">
+        <a v-if="$site.themeConfig.zjurl.length>0" :href="$site.themeConfig.zjurl[0].url"  target="_blank" style="color:white">{{$site.themeConfig.zjurl[0].name}}</a>
         <a v-if="$site.themeConfig.zjemail" style="color:white"  href="javascript:void(0)" @click="sendmail" id='copy' :data-clipboard-text="$site.themeConfig.zjemail">
         <i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a>
         <a v-if="$site.themeConfig.zjgithub" :href="$site.themeConfig.zjgithub"  target="_blank" style="color:white">
         <i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
         <a v-if="$site.themeConfig.zjoverflow" :href="$site.themeConfig.zjoverflow"  target="_blank" style="color:white">
         <i class="fa fa-stack-overflow fa-2x" aria-hidden="true"></i></a>
+        <a v-if="$site.themeConfig.zjurl.length>1" :href="$site.themeConfig.zjurl[1].url"  target="_blank" style="color:white">{{$site.themeConfig.zjurl[1].name}}</a>
         </div>
         <canvas id="c"></canvas>
     </div>
