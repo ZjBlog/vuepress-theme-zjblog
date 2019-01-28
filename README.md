@@ -35,6 +35,6 @@ themeConfig:{
 ## 配置说明
  * 其它配置请参考[vuepress-theme-yubisaki](https://github.com/Yubisaki/vuepress-theme-yubisaki)这个主题的配置
      * [说明文档](https://github.com/Bloss/vuepress-theme-yubisaki/blob/master/README.md)
-     * [中文说明](https://wuwaki.me/yubisaki/)
+     * [中文说明](https://wuwaki.me/yubisaki/usage.html)
 ----
 __再次感谢[vuepress-theme-yubisaki](https://github.com/Yubisaki/vuepress-theme-yubisaki)的作者__
