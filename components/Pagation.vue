@@ -1,5 +1,5 @@
 <template>
-  <nav class="pagation-nav">
+  <nav :class="tagsShow?'pagation-nav1':'pagation-nav'">
     <span class="pagation-action pagation-prev" 
       @click="prevPage"
       v-if="currPage > 1">上一页</span>
@@ -30,6 +30,7 @@ export default {
   },
   data() {
     return {
+      tagsShow: window.location.href.indexOf('tags')>0,
       currentPage: 1,
       list:[],
       currPage: 1
@@ -104,7 +105,16 @@ export default {
   overflow hidden
   span:hover
     color #409EFF
-
+.pagation-nav1
+  border-radius 10px
+  margin-right 10px
+  padding 1rem
+  text-align center
+  clear both
+  line-height 2
+  overflow hidden
+  span:hover
+    color #409EFF
 .pagation-action
   display block
   text-align center
