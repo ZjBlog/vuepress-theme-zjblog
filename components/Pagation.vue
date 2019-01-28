@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      tagsShow: window.location.href.indexOf('tags')>0,
+      tagsShow: false,
       currentPage: 1,
       list:[],
       currPage: 1
@@ -89,6 +89,9 @@ export default {
     currentPage(pageNum) {
       this.$emit('change', pageNum)
     }
+  },
+  mounted () {
+    this.tagsShow = window.location.href.indexOf('tags')>0
   }
 }
 </script>
