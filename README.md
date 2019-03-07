@@ -14,6 +14,7 @@
 * 增加友情链接配置
 * 修改生成二维码链接为https
 * 修改分页在tags显示的问题
+* 使用actions自动部署到npm
 ## 新增的配置
 ```js
 themeConfig:{
