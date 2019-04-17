@@ -28,9 +28,10 @@ themeConfig:{
   //新增展示的微信二维码
   zjwx: '',
   //把title和首页的标题区分开了,这是首页logo旁边的字
-  zjHome: ''
+  zjHome: '',
   //友情链接
-  zjurl:[{url:'https://www.bangechengzi.com/',name:'半个橙子'}]
+  zjurl:[{url:'https://www.bangechengzi.com/',name:'半个橙子'}],
+  //每日一张随机图片地址
   backgroundUrl: 'https://www.bangechengzi.com/img/'
 }
 ```
