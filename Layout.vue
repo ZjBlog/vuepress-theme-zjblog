@@ -159,7 +159,7 @@ export default {
               `${this.$withBase(themeConfig.background)}` +
               '")'
           }
-        : { background: 'url(https://bing.ioliu.cn/v1/rand)',backgroundSize:'cover'};
+        : { background: 'url('+themeConfig.backgroundUrl+')',backgroundSize:'cover'};
     }
   },
   created() {
