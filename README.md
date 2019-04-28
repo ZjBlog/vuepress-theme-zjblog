@@ -34,6 +34,7 @@ themeConfig:{
   zjurl:[{url:'https://www.bangechengzi.com/',name:'半个橙子'}],
   //每日一张随机图片地址
   backgroundUrl: 'https://www.bangechengzi.com/img/',
+  // 友盟统计代码
   cnzzUrl: ''
 }
 ```

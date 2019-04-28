@@ -90,7 +90,7 @@ export default {
     };
   },
   watch: {
-    '$route': {handler: 'change', immediate: true}
+    '$route': {handler: 'change'}
   },
   computed: {
     isRoot() {
