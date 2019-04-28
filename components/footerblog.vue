@@ -9,6 +9,9 @@
         <a v-if="$site.themeConfig.zjoverflow" :href="$site.themeConfig.zjoverflow"  target="_blank" style="color:white">
         <i class="fa fa-stack-overflow fa-2x" aria-hidden="true"></i></a>
         <a v-if="$site.themeConfig.zjurl.length>1" :href="$site.themeConfig.zjurl[1].url"  target="_blank" style="color:white">{{$site.themeConfig.zjurl[1].name}}</a>
+        <a v-if="$site.themeConfig.cnzzUrl" :href="url"  target="_blank" style="color:white">
+           <img src="https://icon.cnzz.com/img/2.gif">
+        </a>
         </div>
         <canvas id="c"></canvas>
     </div>
@@ -21,10 +24,15 @@ export default {
   name: 'footerblog',
   data () {
     return {
+      url: ''
     }
   },
   mounted () {
     aa()
+    if($site.themeConfig.cnzzUrl){
+      let web_id=$site.themeConfig.cnzzUrl.substring($site.themeConfig.cnzzUrl.lastIndexOf('=')+1)
+      this.url='https://new.cnzz.com/v1/login.php?siteid=' + web_id
+    }
   },
   methods: {
     sendmail () {

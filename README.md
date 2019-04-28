@@ -16,6 +16,7 @@
 * 修改分页在tags显示的问题
 * 使用actions自动部署到npm
 * 增加获取随机图片的配置
+* 增加网站统计
 ## 新增的配置
 ```js
 themeConfig:{
@@ -32,7 +33,8 @@ themeConfig:{
   //友情链接
   zjurl:[{url:'https://www.bangechengzi.com/',name:'半个橙子'}],
   //每日一张随机图片地址
-  backgroundUrl: 'https://www.bangechengzi.com/img/'
+  backgroundUrl: 'https://www.bangechengzi.com/img/',
+  cnzzUrl: ''
 }
 ```
 

@@ -53,7 +53,6 @@ import Tags from './components/Tags.vue'
 import navLayoutMixin from './lib/navLayout.mixin'
 import { resolveSidebarItems, getTitle } from "./lib/util";
 import FooterBlog from './components/footerblog'
-import baiduPush from './lib/baidu'
 const Page = () => import('./Page.vue')
 export default {
   mixins: [navLayoutMixin],
@@ -91,7 +90,7 @@ export default {
     };
   },
   watch: {
-    '$route': 'change'
+    '$route': {handler: 'change', immediate: true}
   },
   computed: {
     isRoot() {
@@ -196,14 +195,27 @@ export default {
     this.$on('sw-updated', this.onSWUpdated);
     this.baiduPush(window.location.href)
     // baiduPush(window.location.href)
+    this.initCnzz()
   },
   methods: {
+    initCnzz () {
+      const { themeConfig } = this.$site;
+      if (!!themeConfig.cnzzUrl) {
+        console.info('init cnzz')
+        const script = document.createElement('script')
+        script.src = themeConfig.cnzzUrl
+        script.language = 'JavaScript'
+        document.body.appendChild(script)
+      } else {
+        console.info('no cnzz url')
+      }
+    },
     baiduPush (href) {
       if (href.substring(0,5) !== 'https') {
         console.info('dev')
         return;
       }
-      // console.info('baidpush:' + href)
+      console.info('baidpush:' + href)
       // console.info('=======pro========:' + href)
       !function(){
         let e = /([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi
@@ -217,10 +229,16 @@ export default {
         }
       }(window)
     },
-    change () {
+    change (to, from) {
       this.flag = window.location.pathname === '/'
       // baiduPush(window.location.href)
       this.baiduPush(window.location.href)
+      if (window._czc) {
+        console.info('push')
+        let contentUrl = to.path
+        let refererUrl = window.location.href
+        window._czc.push(['_trackPageview', contentUrl, refererUrl])
+      }
     },
     toggleSidebar(to) {
       this.isSidebarOpen = typeof to === "boolean" ? to : !this.isSidebarOpen;
