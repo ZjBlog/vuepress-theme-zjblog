@@ -30,7 +30,7 @@ export default {
   mounted () {
     aa()
     if(this.$site.themeConfig.cnzzUrl){
-      let web_id=$site.themeConfig.cnzzUrl.substring($site.themeConfig.cnzzUrl.lastIndexOf('=')+1)
+      let web_id=this.$site.themeConfig.cnzzUrl.substring(this.$site.themeConfig.cnzzUrl.lastIndexOf('=')+1)
       this.url='https://new.cnzz.com/v1/login.php?siteid=' + web_id
     }
   },
