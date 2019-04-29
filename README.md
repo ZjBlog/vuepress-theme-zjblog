@@ -1,5 +1,6 @@
 # vuepress-theme-zjblog
-这个vuepress主题是我在[vuepress-theme-yubisaki](https://github.com/Yubisaki/vuepress-theme-yubisaki)这个主题之上
+## [点击预览](https://zjblog.github.io/)
+&ensp;&ensp;&ensp;&ensp;这个vuepress主题是我在[vuepress-theme-yubisaki](https://github.com/Yubisaki/vuepress-theme-yubisaki)这个主题之上
 进行修改而来的,原来的这个主题就非常好,只是我想加了一点我想要的内容和改了一点小问题,我搭建的博客[猿码集](https://zjblog.github.io/)为了能自动打包,所以才上传npm的.
 ## 新加内容
 * 增加了百度的自动推送功能
@@ -21,7 +22,7 @@
 ```js
 themeConfig:{
   //footer上显示的邮箱地址
-  zjemail: '',
+  zjemail: 'zhangjun521ly@gmail.com',
   //footer上显示的github地址
   zjgithub: '',
   //footer上显示的stackoverflow地址
@@ -29,7 +30,7 @@ themeConfig:{
   //新增展示的微信二维码
   zjwx: '',
   //把title和首页的标题区分开了,这是首页logo旁边的字
-  zjHome: '',
+  zjHome: '猿码集',
   //友情链接
   zjurl:[{url:'https://www.bangechengzi.com/',name:'半个橙子'}],
   //每日一张随机图片地址
