@@ -60,7 +60,7 @@ const Mixin = {
                     id: document.title.split('|')[0].trim(),
                     number: -1,
                     labels: ["Gitalk"],
-                    title: document.title,
+                    title: document.title.split('|')[0].trim(),
                     body: "", // location.href + header.meta[description]
                     language: navigator.language || navigator.userLanguage,
                     perPage: 10,
@@ -270,7 +270,7 @@ const Mixin = {
                     params: {
                         client_id: clientID,
                         client_secret: clientSecret,
-                        labels: labels.concat(id).join(","),
+                        labels: [].concat(id).concat(labels).join(","),
                         t: Date.now()
                     }
                 })
@@ -304,7 +304,7 @@ const Mixin = {
                     `/repos/${owner}/${repo}/issues`,
                     {
                         title,
-                        labels: labels.concat(id),
+                        labels: [].concat(id).concat(labels),
                         body: body || `${url} \n\n ${
                             getMetaContent('description') ||
                             getMetaContent('description', 'og:description') || ''
