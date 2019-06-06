@@ -3,18 +3,8 @@
     <div :key="key2" class="card github-card" v-if="show && $site.themeConfig.zjwx">
       <img :src="$withBase($site.themeConfig.zjwx)" style="width:250px;height:270px;"/>
     </div>
-    <!-- <div class="card github-card" v-if="show1 && $site.themeConfig.zjavatar && web" :key="key1">
-      <div class="github-header"></div>
-      <a :href="$site.themeConfig.zjgithub?$site.themeConfig.zjgithub:'https://github.com'" class="user-link xwcms">
-          <img :src="$site.themeConfig.zjavatar" class="github-avatar">
-      </a>
-      <h1>{{ $site.themeConfig.zjname ? $site.themeConfig.zjname:'无名氏' }}</h1>
-    </div> -->
     <div class="card github-card" v-if="show1 && web" :key="key1">
-      <!-- <div class="github-header"></div> -->
-      <!-- <a :href="$site.themeConfig.zjgithub?$site.themeConfig.zjgithub:'https://github.com'" class="user-link xwcms"> -->
           <img :src="src">
-      <!-- </a> -->
       <h1>扫一扫手机阅读</h1>
     </div>
   </transition-group>
