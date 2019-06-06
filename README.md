@@ -42,3 +42,5 @@ themeConfig:{
   baidpush: false
 }
 ```
+## 使用actions自动创建问题
+使用这个[createIssueByLables](https://github.com/marketplace/actions/createissuebylables)action可以在写完文章推送到github的时候自动创建文章的相关issue,这样就不需要你自己去点击初始了.大家可以试试
