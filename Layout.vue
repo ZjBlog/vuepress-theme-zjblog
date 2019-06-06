@@ -170,6 +170,9 @@ export default {
     }
   },
   mounted() {
+    let h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    this.w1.minHeight= (h-100-70-26) +'px';
+    this.w2.minHeight= (h-100-70-26) +'px';
     this.flag = this.$route.path === '/'
     // when swtich tab, change the current page
     const updateCurPage = () => {
@@ -211,6 +214,11 @@ export default {
       }
     },
     baiduPush (href) {
+      const { themeConfig } = this.$site;
+      if(!themeConfig.baidpush){
+          console.info('close baidu')
+          return;
+      }
       if (href.substring(0,5) !== 'https') {
         console.info('dev')
         return;

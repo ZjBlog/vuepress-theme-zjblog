@@ -13,7 +13,7 @@
         <ArticleGroup :page-items="pageItems" />
         <Pagation 
             :page-items="pageWithSpecTag"
-            @change="page => currentPage = page" />
+            @change="page => currentPage = page" :key='key'/>
     </div>
 </template>
 
@@ -27,7 +27,8 @@ export default {
     mixins: [navLayoutMixin],
     data() {
         return {
-            currentPage: 1
+            currentPage: 1,
+            key: '12'
         }
     },
     mounted() {
@@ -37,6 +38,11 @@ export default {
         this.$watch('pageWithSpecTag', updateCurPage)
     },
     components: { Tag, ArticleGroup, Pagation },
+    watch: {
+        '$route' (to, from) {
+            this.key = Date.now()
+        }
+    },
     computed: {
         overrideStyle() {
             const accentColor = this.$site.themeConfig['accentColor'];
@@ -52,7 +58,7 @@ export default {
         },
         pageWithSpecTag() {
             if (!this.tagName) return [];
-            const tagKeys = this.$tags[this.tagName.toLowerCase()];
+            const tagKeys = this.$tags[this.tagName];
             return this.pages.filter(page => page.key && !!~tagKeys.indexOf(page.key));
         },
     }

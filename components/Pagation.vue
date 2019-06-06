@@ -5,7 +5,7 @@
       v-if="currPage > 1">上一页</span>
     <template>
       <span v-for="(num, index) in pageSum1"
-        :key="num" 
+        :key="index" 
         class="pagation-num"
         @click="changeCurrentPage(num)"
         :class="hightlightCurrentPage(num)">

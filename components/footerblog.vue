@@ -72,7 +72,10 @@ canvas{
     line-height: 100px;
     text-align: center;
     font-size: 20px;
-    color: #fff;
+    color: #fff;    
+     a {
+       padding: 10px;
+      }
     }
 }
 </style>

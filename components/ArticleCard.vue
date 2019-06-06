@@ -43,7 +43,7 @@
       },
       overrideStyle() {
         const { accentColor } = this.$site.themeConfig
-        return accentColor ? { color: accentColor } : {}
+        return accentColor ? { color: accentColor,'font-weight':'bold' } : {color: 'block','font-weight':'bold'}
       },
       isBanner() {
         return this.info.frontmatter.banner
