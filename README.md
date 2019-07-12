@@ -1,7 +1,8 @@
 # vuepress-theme-zjblog
-## [点击预览](https://bgcz.github.io/)
-&ensp;&ensp;&ensp;&ensp;这个vuepress主题是我在[vuepress-theme-yubisaki](https://github.com/Yubisaki/vuepress-theme-yubisaki)这个主题之上
-进行修改而来的,原来的这个主题就非常好,只是我想加了一点我想要的内容和改了一点小问题,我搭建的博客[猿码集](https://bgcz.github.io/)为了能自动打包,所以才上传npm的.
+`vuepress` `vuepress-theme` `bgcz` `主题模板`
+## [博客预览][blog]
+&ensp;&ensp;&ensp;&ensp;这个vuepress主题是我在[vuepress-theme-yubisaki][origin]这个主题之上
+进行修改而来的,原来的这个主题就非常好,只是我想加了一点我想要的内容和改了一点小问题,我搭建的博客[猿码集][blog]为了能自动打包,所以才上传npm的.
 ## 新加内容
 * 增加了百度的自动推送功能及控制开关
 * 增加了个人感觉好玩的footer
@@ -43,4 +44,11 @@ themeConfig:{
 }
 ```
 ## 使用actions自动创建问题
-使用这个[createIssueByLables](https://github.com/marketplace/actions/createissuebylables)action可以在写完文章推送到github的时候自动创建文章的相关issue,这样就不需要你自己去点击初始了.大家可以试试
+使用这个[createIssueByLables][actions]action可以在写完文章推送到github的时候自动创建文章的相关issue,这样就不需要你自己去点击初始了.大家可以试试
+
+
+
+----------------------------------
+[blog]:https://bgcz.github.io/ "博客地址"
+[origin]:https://github.com/Yubisaki/vuepress-theme-yubisaki "原主题"
+[actions]:https://github.com/marketplace/actions/createissuebylables "actions"
