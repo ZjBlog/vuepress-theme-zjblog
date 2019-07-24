@@ -7,7 +7,8 @@
                 :highlight="true"
                 :slug="tag"
                 :key="tag">
-                #{{tag}} {{$tags[tag].length}}
+                <span slot="name">{{tag}}</span>
+                <span  slot="len">共{{$tags[tag].length}}篇</span>
             </Tag>
         </div>
         <ArticleGroup :page-items="pageItems" />

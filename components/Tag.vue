@@ -4,6 +4,8 @@
             :class="tagClasses">
             <span class="tag-inner">
                 <slot></slot>
+                <slot name="name"></slot> -
+                <slot name="len"></slot>
             </span>
         </span>
     </router-link>
@@ -49,11 +51,12 @@ export default {
     position relative
     transition .3s cubic-bezier(.25,.8,.5,1)
     text-transform capitalize
+    background-color #E4E7ED
 .tag-inner
     height 24px
     line-height 24px
     white-space nowrap
-    padding 0 12px
+    padding 0 10px
 .tag-active
     background-color #3f51b5
     color #fff
