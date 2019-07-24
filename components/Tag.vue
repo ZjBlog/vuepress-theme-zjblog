@@ -2,7 +2,7 @@
     <router-link :to="to" exact>
         <span tabindex="0" 
             :class="tagClasses">
-            <span class="tag-inner">
+            <span class="tag-inner" ref="mybox">
                 <slot></slot>
                 <slot name="name"></slot>
                 <slot name="len"></slot>
@@ -27,6 +27,28 @@ export default {
                 'tag-active': this.highlight && this.slug === this.tagName
             }
         }
+    },
+    watch: {
+        '$route' (to, from) {
+            this.init()
+        }
+    },
+    methods:{
+        init (){
+            if(!this.tagName){
+             return
+            }
+         if(this.tagName===this.$refs.mybox.innerText.toLowerCase()){
+            this.$refs.mybox.style.backgroundColor = '#3f51b5'
+            this.$refs.mybox.style.color = '#fff'
+            this.$refs.mybox.style.borderRadius = '4px'
+          }else{
+            this.$refs.mybox.style= ''
+          }   
+        }
+    },
+    mounted (){
+        this.init()
     }
 }
 </script>
@@ -41,7 +63,7 @@ export default {
     background: #fff;
     color rgba(0,0,0,.87)
     height 24px
-    border-radius 2px
+    border-radius 4px
     align-items center
     display inline-flex
     vertical-align middle
