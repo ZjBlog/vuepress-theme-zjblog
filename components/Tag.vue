@@ -38,7 +38,7 @@ export default {
             if(!this.tagName){
              return
             }
-         if(this.tagName===this.$refs.mybox.innerText.toLowerCase()){
+         if(this.tagName.toLowerCase()===this.$refs.mybox.innerText.toLowerCase()){
             this.$refs.mybox.style.backgroundColor = '#3f51b5'
             this.$refs.mybox.style.color = '#fff'
             this.$refs.mybox.style.borderRadius = '4px'
