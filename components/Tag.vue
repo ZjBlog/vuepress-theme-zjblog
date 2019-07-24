@@ -4,7 +4,7 @@
             :class="tagClasses">
             <span class="tag-inner">
                 <slot></slot>
-                <slot name="name"></slot> -
+                <slot name="name"></slot>
                 <slot name="len"></slot>
             </span>
         </span>
