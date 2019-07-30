@@ -151,6 +151,10 @@ export default {
     },
     wrapClasses() {
       const { themeConfig } = this.$site;
+      let randomMath=Math.random()*(3000-1+1)+1;
+      let imgMath=Math.floor(randomMath);
+      let url = themeConfig.backgroundUrl? themeConfig.backgroundUrl:'https://img.infinitynewtab.com/wallpaper/' + imgMath + '.jpg';
+
       return themeConfig.background
         ? {
             background:
@@ -158,7 +162,7 @@ export default {
               `${this.$withBase(themeConfig.background)}` +
               '")'
           }
-        : { background: 'url('+themeConfig.backgroundUrl+')',backgroundSize:'cover'};
+        : { background: `url(${url})`,backgroundSize:'cover'};
     }
   },
   created() {

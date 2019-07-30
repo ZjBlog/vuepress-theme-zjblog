@@ -21,6 +21,7 @@
 * tags的问题修改
 * 标题修改
 * tags页面美化
+* backgroundUrl 不填增加默认随机图
 ## 新增的配置
 ```js
 themeConfig:{
@@ -42,6 +43,80 @@ themeConfig:{
   cnzzUrl: ''，
   // 百度推送开关
   baidpush: false
+}
+```
+
+## 我的博客配置
+``` js
+module.exports = {
+  theme: 'zjblog',
+  title: '猿码集-程序猿进击之路',
+  description: '猿码集,每天进步一点点.',
+  head: [
+      ['link', { rel: 'icon', href: '/favicon.ico'}],
+      ['link', { rel: 'manifest', href: '/manifest.json' }]
+  ],
+  ga: 'UA-******-1',
+  serviceWorker: true,
+  // fuck IE
+  evergreen: true,
+  markdown: {
+    // markdown-it-anchor 的选项
+    anchor: { permalink: true },
+    // markdown-it-toc 的选项
+    toc: { includeLevel: [1, 2] },
+    config: md => {
+      md.use(require('markdown-it-task-lists')) // 一个 checkbox 的 TODO List 插件
+        .use(require('markdown-it-imsize'), { autofill: true }) // 支持自定义 md 图片大小 ![](http://test.png =200x200)
+    }
+  },
+// 主题的一些配置
+  themeConfig: {
+  serviceWorker: {
+    updatePopup: { 
+       message: "文章有更新", 
+       buttonText: "刷新" 
+    }
+  },
+  zjemail: 'zhangjun521ly@gmail.com',
+  zjgithub: 'https://github.com/zjblog',
+  zjoverflow:'',
+  zjwx: 'https://blog-1255892226.cos.ap-beijing.myqcloud.com/xyqs.jpg',
+  zjHome: '',
+  zjurl:[{url:'https://www.bangechengzi.com/',name:'半个橙子'}],
+  baidpush: false,
+  cnzzUrl: '',
+  // 博客背景图片
+  background: '',
+  backgroundUrl: '',
+  // 博客的 logo
+  logo: '/bgcz.png',
+  // 定制文章标题颜色
+  accentColor: 'black',
+  // 每页显示的文章数量
+  per_page: 5,
+  // 创建文章的时间格式, 不设则不显示 可选 [yyyy-MM-dd HH:mm:ss]
+  date_format: 'yyyy-MM-dd',
+  // 开启标签功能
+  tags: true,
+  // vssue 的配置项, 不支持 flipMoveOptions
+  comment: {
+    owner: 'ZjBlog',
+    repo: 'bgcz',
+    clientID: '*******',
+    clientSecret: '*******',
+    admin:['ZjBlog'],
+    perPage: 5,
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  },
+  nav: [
+    { text: '首 页', link: '/', root: true }, // 指定它为博客根目录
+    { text: '笔 记', link: '/home/',root: true},
+    { text: '标 签', link: '/tags/', tags: true }, // 指定它为标签目录
+    { text: '半个橙子', link: 'https://www.bangechengzi.com/'},
+    { text: 'GitHub', link: 'https://github.com/ZjBlog' }
+  ]
+ }
 }
 ```
 ## 使用actions自动创建问题
