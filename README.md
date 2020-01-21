@@ -1,4 +1,4 @@
-![](https://github.com/ZjBlog/vuepress-theme-zjblog/workflows/npm/badge.svg)
+  ![](https://github.com/ZjBlog/vuepress-theme-zjblog/workflows/npm/badge.svg)
 # vuepress-theme-zjblog
 `vuepress` `vuepress-theme` `bgcz` `主题模板`
 ## [博客预览][blog]
