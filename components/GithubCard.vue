@@ -33,14 +33,14 @@ export default {
       gistsUrl: null,
       code: 1,
       web:true,
-      src: 'https://www.bangechengzi.com/qrcode?text=https://zjblog.github.io/'
+      src: 'https://shici.bgcz.now.sh/qrcode.js?text=https://zjblog.github.io/'
     };
   },
     watch: {
     '$route': 'change'
   },
   mounted() {
-    this.src = 'https://www.bangechengzi.com/qrcode?text=' + window.location.href
+    this.src = 'https://shici.bgcz.now.sh/qrcode.js?text=' + window.location.href
     this.web = this.isWeb()
     this.changeShow()
     // if (!this.user) return;
