@@ -23,5 +23,5 @@ jobs:
     - name: send-message
       uses: ZjBlog/message@v1.5
       env: 
-        MESSAGE: "now部署成功"
+        MESSAGE: "npm部署成功"
         URL: ${{ secrets.URL }}  
